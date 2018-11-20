@@ -33,3 +33,36 @@ drawTri(...arr)
 const arr2 = [...arr, ...arr]
 console.log(arr2);
 // expected output: 42
+
+
+const imgBtn = document.querySelector('.imgButton');
+
+const imgToggle = () =>{
+    let mySrc = imgBtn.getAttribute('src');
+    if(mySrc === 'https://www.mozilla.org/media/img/logos/firefox/logo-quantum-wordmark-white.bd1944395fb6.png') {
+        imgBtn.setAttribute ('src','https://www.google.co.uk/chrome/static/images/chrome-logo.svg'); // change image src
+    } else {
+        imgBtn.setAttribute ('src','https://www.mozilla.org/media/img/logos/firefox/logo-quantum-wordmark-white.bd1944395fb6.png');
+    }
+}
+imgBtn.onclick = imgToggle;
+
+const userBtn = document.querySelector('.userButton');
+const myHeading = document.querySelector('.heading');
+const setUserName = () => {
+    var myName = prompt('Please enter your name.'); // pop up input
+    localStorage.setItem('name', myName); // store the data
+    myHeading.textContent = 'Mozilla is cool, ' + myName; // out put the text
+    checkIfUserEnter();
+}
+
+const checkIfUserEnter = () =>{
+    if(!localStorage.getItem('name')) { // check is it empty 
+        setUserName(); // ask again
+      } else {
+        let storedName = localStorage.getItem('name'); // update store data
+        myHeading.textContent = 'Mozilla is cool, ' + storedName; 
+      }
+}
+
+userBtn.onclick = setUserName;
