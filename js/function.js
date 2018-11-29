@@ -66,3 +66,18 @@ const checkIfUserEnter = () =>{
 }
 
 userBtn.onclick = setUserName;
+
+
+
+// count how sheeps there is
+const sheeps = [true,  true,  true,  false,
+    true,  true,  true,  true ,
+    true,  false, true,  false,
+    true,  false, false, true ,
+    true,  true,  true,  true ,
+    false, false, true,  true]; 
+
+const sheepResultT = sheeps.filter(sheep => sheep === true);
+const sheepResultF = sheeps.filter(sheep => sheep === false);
+console.log("the amount of sheeps left is " + sheepResultT.length);
+console.log("the amount of sheeps gone is " +sheepResultF.length);
